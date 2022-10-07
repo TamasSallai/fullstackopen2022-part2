@@ -43,11 +43,15 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <Filter filter={setFilter} />
+
+      <h3>Add a new</h3>
       <PersonForm
         handleSubmit={handleSubmit}
         setName={setName}
         setNumber={setNumber}
       />
+
+      <h3>Numbers</h3>
       <PersonList persons={persons} filter={filter} />
     </div>
   )
