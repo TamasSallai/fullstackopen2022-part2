@@ -1,6 +1,7 @@
 import React from 'react'
+import Person from './Person'
 
-const PersonList = ({ persons, filter }) => {
+const PersonList = ({ persons, filter, handleDelete }) => {
   return (
     <div>
       {persons
@@ -8,9 +9,11 @@ const PersonList = ({ persons, filter }) => {
           person.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
         )
         .map((person) => (
-          <div key={person.name}>
-            {person.name} {person.number}
-          </div>
+          <Person
+            key={person.name}
+            person={person}
+            handleDelete={() => handleDelete(person.id)}
+          />
         ))}
     </div>
   )
