@@ -11,7 +11,6 @@ const Country = ({ country }) => {
       )
       .then((response) => {
         setWeatherData(response.data)
-        console.log(process.env.REACT_APP_WEATHER_API_KEY)
       })
   }, [])
 
