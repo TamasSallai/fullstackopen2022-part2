@@ -79,7 +79,7 @@ const App = () => {
   }
 
   const handleDelete = (id) => {
-    const currentPerson = persons.find((person) => person.id === parseInt(id))
+    const currentPerson = persons.find((person) => person.id === id)
     if (window.confirm(`Delete ${currentPerson.name} ?`)) {
       personService
         .remove(id)
