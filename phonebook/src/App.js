@@ -69,13 +69,21 @@ const App = () => {
     }
 
     const newPerson = { name: name, number: number }
-    personService.create(newPerson).then((person) => {
-      setPersons(persons.concat(person))
-      setNotification({ type: 'success', message: `Added ${name}` })
-      setTimeout(() => {
-        setNotification(null)
-      }, 5000)
-    })
+    personService
+      .create(newPerson)
+      .then((person) => {
+        setPersons(persons.concat(person))
+        setNotification({ type: 'success', message: `Added ${name}` })
+        setTimeout(() => {
+          setNotification(null)
+        }, 5000)
+      })
+      .catch((error) => {
+        setNotification({ type: 'error', message: error.response.data.error })
+        setTimeout(() => {
+          setNotification(null)
+        }, 5000)
+      })
   }
 
   const handleDelete = (id) => {
